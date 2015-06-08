@@ -45,11 +45,15 @@ let withinRange = List.map(isWithinRange range sphereCenter) spline
 
 //Functional Composition
 
-
-//Option
-
 //Pattern Matching
+//We could use pattern matching for our within range function
+let patternMatchWithinRange range vector1 vector2 = 
+    match distanceBetween vector1 vector2 with
+    | result when result <= range -> true
+    | _ -> false
 
-//Disciminated Union?
+let withinRange2 = List.map(patternMatchWithinRange range sphereCenter) spline
+
 
 //Type Provider
+
