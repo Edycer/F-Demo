@@ -53,7 +53,3 @@ let patternMatchWithinRange range vector1 vector2 =
     | _ -> false
 
 let withinRange2 = List.map(patternMatchWithinRange range sphereCenter) spline
-
-
-//Type Provider
-
