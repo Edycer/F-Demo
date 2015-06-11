@@ -2,6 +2,8 @@
 
 open Types
 
+// Functions.
+
 let subtract vector1 vector2 =
     let x = vector1.X - vector2.X
     let y = vector1.Y - vector2.Y
@@ -11,14 +13,22 @@ let subtract vector1 vector2 =
 let magnitude vector =
     sqrt ( (vector.X * vector.X) + (vector.Y * vector.Y) + (vector.Z * vector.Z) )
 
+// Pipe 
+
 let distanceBetween vector1 vector2 = 
     subtract vector1 vector2 |>
     magnitude
 
 
+// List Module
+
+let vector1 = {X = 1.0<m>; Y = 0.0<m>; Z = 0.0<m>}
+let vector2 = {X = 2.0<m>; Y = 0.0<m>; Z = 0.0<m>}
+let vecList = [vector1; vector2]
 
 
-
+let vectorsMagnitudes vectors =
+    List.map(fun v -> magnitude v) vectors
 
 ///
 /// Section 2
@@ -29,9 +39,6 @@ let distanceBetween vector1 vector2 =
 let isWithinRange range vector1 vector2 =
     distanceBetween vector1 vector2 < range
     
-
-let vector1 = {X = 1.0<m>; Y = 0.0<m>; Z = 0.0<m>}
-let vector2 = {X = 2.0<m>; Y = 0.0<m>; Z = 0.0<m>}
 let vector3 = {X = 3.0<m>; Y = 0.0<m>; Z = 0.0<m>}
 let vector4 = {X = 4.0<m>; Y = 0.0<m>; Z = 0.0<m>}
 
@@ -42,8 +49,6 @@ let range = 1.0<m>
 //A Linq style mapping function can only take one argument. We can partially apply our isWithinRange function
 //to give us a function that takes one argument in. 
 let withinRange = List.map(isWithinRange range sphereCenter) spline
-
-//Functional Composition
 
 //Pattern Matching
 //We could use pattern matching for our within range function
