@@ -1,16 +1,15 @@
 ﻿module Types
 
+// Units of measure
+
 [<Measure>] type m
 [<Measure>] type cm
 [<Measure>] type mm
 
-//type Vector3 =
-//    struct
-//        val X: float<m>
-//        val Y: float<m>
-//        val Z: float<m>
-//        new (x, y, z) = {X = x; Y = y; Z = z}
-//    end
+//let mDivideCm = 3.0<m> - 3.0<cm>
+let mSquared = 3.0<m> * 3.0<m>
+
+// Object
 
 type Vector3 =
     {
